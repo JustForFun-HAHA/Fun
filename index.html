@@ -3,9 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <title>Ну ты ХАКЕР)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            font-size: 5vw;
+        }
+        #dynamicImage {
+            width: 100%;
+            height: auto; 
+        }
+    </style>
 </head>
 <body>
     <h1>Ну ты ХАКЕР)</h1>
-    <img src="https://a.d-cd.net/z2pr4FgGERyoENE4HFOGaI1b6y4-1920.jpg" alt="ХАКЕР">
+    <img id="dynamicImage" src="https://a.d-cd.net/z2pr4FgGERyoENE4HFOGaI1b6y4-1920.jpg" alt="ХАКЕР">
+    
+    <script>
+        window.addEventListener('resize', resizeElements);
+
+        function resizeElements() {
+            const img = document.getElementById('dynamicImage');
+            const containerWidth = img.parentElement.clientWidth;
+            const h1 = document.querySelector('h1');
+
+            if (window.innerWidth < 600) {
+                img.style.width = containerWidth * 0.8 + 'px';
+                h1.style.fontSize = '4vw';
+            } else {
+                img.style.width = containerWidth + 'px';
+                h1.style.fontSize = '5vw';
+            }
+        }
+
+        resizeElements();
+    </script>
 </body>
 </html>
